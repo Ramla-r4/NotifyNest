@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{% static 'css/css.css' %}" >
+</head> 
+<body>
+    <html>
+    
+    <head>
+        <title></title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Young+Serif&display=swap">
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+           
+            .sec-1 {
+                height:130vh;
+                background: linear-gradient(135deg,  #ded6d3, #fffaf8);
+            }
+           
+           
+            .img {
+                width: 160px;
+                margin-left: 2%;
+            }
+          
+           
+            </style>
+        </head>
+    <body>
+        <section class="sec-1">     
+            <div class="main">
+              
+                <img src="{% static 'images/logo1.png' %}" class="img">
+            </div>
+           <div class="col-md-6 offset-md-3">
+            <h1>Organize with NotifyNest</h1>
+            <br/>
+            
+            <form method="POST" action="{% url 'add_tesk' %}">
+                {% csrf_token %}
+            
+                {{ form.as_p }}
+            
+            <br/>
+              <button type="submit" class="btn " style="background: linear-gradient(135deg,  #E24686, #D24009);">Organize</button>
+              <a href="{% url 'home' %}" class="btn btn-secondary" style="background: linear-gradient(135deg, #D2A122, #e0ab25); color: white; border: none;">Back</a>
+            
+            </form>
+           </div>
+            
+        </section>
+        
+    
+       
+</body>
+</html>
+
+

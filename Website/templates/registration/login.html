@@ -1,0 +1,169 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+   
+  
+    <h1>Login</h1>
+    <br/>
+    
+    <form >
+        {% csrf_token %}
+    
+      <div class="mb-3">
+        <input type="text" class="form-control" name="username", placeholder="Username" required>
+        
+      </div><br/>
+      <div class="mb-3">
+        <input type="password" class="form-control" name="password", placeholder="Password" required>
+      </div>
+      <br/>
+      <button type="submit" class="btn btn-secondary">Login</button>
+    
+    </form>
+    
+</body>
+</html> -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Young+Serif&display=swap">
+</head> 
+<body>
+    <html>
+    <head>
+        <style>
+          
+            html, body {
+                background: linear-gradient(135deg,  #ded6d3,#d1bdb7,);
+                margin: 0;
+                padding: 0;
+                min-height: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .img{
+                position: absolute;
+                top: 6%;
+            }
+         
+            .login{
+                position: relative;
+                left: 69%;
+                margin-top: 8%;
+                font-size: 44px;
+                font-family: "Nerko One", cursive;
+            }
+            .login1{
+                position: relative;
+                left: 67%;
+                width: 19%;
+                height: 35px;
+                border: none;
+                outline: none;
+                border-radius: 10px;
+                padding: 10px;
+                background-color:#f1efef;
+                font-size: 12.4px;
+                margin: 5px;
+            }
+           
+            .button{
+                position: relative;
+                left: 66.5%;
+                background: linear-gradient(135deg,  #E24686, #D24009);
+                width: 10%;
+                text-align: center;
+                height: 10%;
+                border-radius: 15px;
+                padding: 15px;
+                border: none;
+                font-family: 'Young Serif';
+                font-size: 15px;
+                color: #f1efef;
+
+            }
+            .button2{
+                position: relative;
+                left: 69.5%;
+                background: linear-gradient(135deg,  #E24686, #D24009);
+                width: 10%;
+                text-align: center;
+                height: 10%;
+                border-radius: 15px;
+                padding: 15px;
+                border: none;
+                font-family: 'Young Serif';
+                font-size: 15px;
+                color: #f1efef;
+
+            }
+           
+        </style>
+        </head>
+    <body>
+        <section class="sec-1">   
+
+            <div >
+                <img src="{% static 'images/login.jpg' %}" width="42%"  class="img">
+            </div>
+            <div class="login">
+                <h3>Welcome !</h3>
+            </div>
+            {% for message in messages %}
+
+              <div style="
+              background: linear-gradient(135deg,  #e7e5e6, #f4f1f1);
+              padding: 10px;
+              border-radius: 7px;
+              color: rgb(0, 0, 0);
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 1000;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+              <span style="
+                  position: absolute;
+                  right: 7px;
+                  font-size: 29px;
+                  top: -2px;
+                  cursor: pointer;
+                  color: #D24009;
+              " onclick="this.parentElement.style.display='none';">&times;</span>
+                  <p>{{ message }}</p>
+            {% endfor %}
+          </div>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+            
+            <div>
+                <input type="text"  name="username"  class="login1" placeholder="USERNAME" >
+                
+            </div><br/>
+            <div >
+                <input type="password" name="password",  class="login1" placeholder="PASSWORD" >
+            </div>
+            <br/>
+            <br>
+            <button type="submit" class="button" name="signup">SIGN UP</button>
+            <button type="submit" class="button2" name="login">LOG IN</button>
+
+            
+            </form>
+</body>
+</html>
